@@ -8,9 +8,11 @@ method:GET
 required fields:none
 Access type:public
 '''
-@app.get("/")
-def rootreq():
-    return{"msg":"application root request "}
+@app.get("/users/{user_id}")
+def get_user(user_id: int):
+    return {
+        "user_id": user_id
+    }
 
 '''
 usage:create user
@@ -22,10 +24,37 @@ Access type:public
 @app.post("/create")
 def createuser():
     return{"msg":"new user created succesfully"}
+'''
+usage:fetch user
+restiapi:http://127.0.0.1:8000/put
+method:put
+required fields:none
+accesss type:public
+'''
 
-#def getuser():
- #   return{"msg":"fetching all users"}
-#def updateuser():
- #   return{"msg":"user updated successfully"}
-#def deleteuser():
- #   return{"msg":"ser deleted successfully"}
+@app.get("/put")
+def getuser():
+   return{"msg":"fetching all users"}
+
+'''
+usage:update user
+restiapi:http://127.0.0.1:8000/update
+method:update
+required fields:none
+accesss type:public
+'''
+
+@app.put("/update")
+def updateuser():
+    return {"msg": "user updated successfully"}
+'''
+usage:delete user
+restiapi:http://127.0.0.1:8000/delete
+method:delete
+required fields:none
+accesss type:public
+'''
+
+@app.delete("/delete")
+def deleteuser():
+   return{"msg":"user deleted successfully"}
