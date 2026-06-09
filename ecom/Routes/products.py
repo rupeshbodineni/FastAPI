@@ -75,7 +75,7 @@ def update_product(id: int, product: Product):
 
 @product_Router.delete('/delete')
 def delete_product():
-    for i in range (len(products)):
-         if products[i].id==id:
-             return{"message":"product deleted successfully"}
-         return {"message":"product not found"}
+    for i in range(len(products)):
+     if products[i].id == id:
+        return {"message": "product deleted successfully"}
+    return {"message": "product not found"}
