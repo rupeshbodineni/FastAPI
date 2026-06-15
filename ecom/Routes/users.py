@@ -1,9 +1,15 @@
 from fastapi import APIRouter
 
 users_Router=APIRouter(prefix="/users" ,tags=["users"])
+products=[]
 @users_Router.get('/get')
 def get():
+
     return {"message":"users get successfully"}
+@users_Router.get()
+def get():
+    
+    return {"msg":"user get successfully"}
 @users_Router.post('/post')
 def create():
     return{"message":"user created successfully"}
